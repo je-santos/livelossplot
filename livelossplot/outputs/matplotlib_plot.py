@@ -64,10 +64,16 @@ class MatplotlibPlot(BaseOutput):
                 xs = [log.step for log in logs]
                 ys = [log.value for log in logs]
                 plt.plot(xs, ys, label=name)
+                
 
         plt.title(group_name)
         plt.xlabel('epoch')
         plt.legend(loc='center right')
+        
+        """
+        This is me (Javier) potentially breaking stuff
+        """
+        plt.yscale('log')
 
     def _not_inline_warning(self):
         backend = matplotlib.get_backend()
